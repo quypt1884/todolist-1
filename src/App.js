@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-
+import ToDoListFunction from './page/ToDoListFunction';
+import ToDoListClass from './page/ToDoListClass';
+import ToDoListUseReducer from './page/ToDoListUseReducer';
+import ToDoListUseReducerImmer from './page/ToDoListUseReducerImmer';
+import Header from './component/Header';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/'  element={<Header/>  }> 
+          <Route index element={<ToDoListFunction/>}/>
+          <Route path='/class' element={<ToDoListClass/>}/>
+          <Route path='/usereducer' element={<ToDoListUseReducer/>}/>
+          <Route path='/usereducer-immer' element={<ToDoListUseReducerImmer/>}/>
+        </Route>
+      </Routes>
     </div>
   );
 }
